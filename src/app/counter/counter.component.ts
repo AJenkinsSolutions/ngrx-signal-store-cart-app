@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../NGRX-states/app.state';
@@ -20,6 +20,8 @@ export class CounterComponent {
   count$: Observable<number>;
 
   count = signal(0);
+  //Whenever the 'count' signal is computed * 2 
+  double = computed(()=> this.count() * 2);
 
 
 
@@ -31,6 +33,7 @@ export class CounterComponent {
 
 
   increment(): void {
+    //  Signal method update takes a function
     this.count.update((num) => num + 1);
    
   }
@@ -40,6 +43,7 @@ export class CounterComponent {
   }
 
   reset(): void {
+    // Signal method assigns value to signal var
     this.count.set(0);
   }
 
