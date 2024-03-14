@@ -12,6 +12,7 @@ import { productReducer } from './NGRX-reducers/product.reducer';
 import { StoreDevtoolsModule, provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { ProductEffect } from './NGRX-effects/product.effect';
+import { CounterStore } from './store/counter.store';
 
 
 export const appConfig: ApplicationConfig = {
@@ -25,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects(ProductEffect),
     provideHttpClient(withFetch()),
     provideStoreDevtools({maxAge: 25}),
+    
   
   ]
 };
