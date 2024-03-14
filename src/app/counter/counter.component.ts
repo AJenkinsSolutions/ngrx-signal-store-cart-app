@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../NGRX-states/app.state';
 import { selectCount } from '../NGRX-selectors/counter.selector';
 import { AsyncPipe } from '@angular/common';
 import { decrement, increment, reset } from '../NGRX-actions/counter.action';
+import { Signal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -15,8 +16,12 @@ import { decrement, increment, reset } from '../NGRX-actions/counter.action';
 })
 export class CounterComponent {
 
-  //Count state variable
+
   count$: Observable<number>;
+
+  count = signal(0);
+
+
 
   //Initalize our Global store
   constructor(private store: Store<AppState>){
