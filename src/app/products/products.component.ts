@@ -12,6 +12,7 @@ import { addToCart } from '../NGRX-actions/cart.action';
 import * as ProductActions from '../NGRX-actions/product.action';
 import * as ProductSelector from '../NGRX-selectors/product.selector';
 import { json } from 'stream/consumers';
+import { CartStore } from '../store/cart.store';
 
 @Component({
   selector: 'app-products',
@@ -25,10 +26,10 @@ export class ProductsComponent implements OnInit{
   // Add HttpClient Object
   //* We add the HttpClientModule in the providers Array in the app.config
   http = inject(HttpClient);
-  productApiService = inject(ProductApiService)
- // baseUrl: string = 'https://fakestoreapi.com/';
- // baseUrl: string = 'localhost:3002/'
-  //productsEndpoint: string = 'products';
+  productApiService = inject(ProductApiService);
+  cartStore = inject(CartStore);
+
+
 
   //define the return api call
 //products$ = this.productApiService.getProducts() as Observable<IProduct[]>
@@ -67,7 +68,8 @@ export class ProductsComponent implements OnInit{
   //
   addItemToCart(product : IProduct): void{
     console.info("in addItemToCart in  productComponent.ts")
-    this.store.dispatch(addToCart({ product }));
+    // this.store.dispatch(addToCart({ product }));
+    this.cartStore.addToCart(product);
 
   }
  

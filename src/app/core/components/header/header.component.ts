@@ -9,6 +9,7 @@ import { AsyncPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { IProduct } from '../../../models/product.interface';
 import { seletctCartProducts } from '../../../NGRX-selectors/cart.selector';
+import { CartStore } from '../../../store/cart.store';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class HeaderComponent {
   //Count state variable
   count$: Observable<number>;
 
+cartStore = inject(CartStore)
   products$: Observable<IProduct[]>;
 
   //Initalize our Global store

@@ -19,7 +19,7 @@
     <div class="grid grid-cols-2 pt-2 pb-2">
 
       <button  type="button" class="bg-green-500 text-white font-bold rounded py-2 px-4 mx-4 hover:bg-gray-700"> View Product </button>
-      <button (click)="addToCart(product)" type="button" class="bg-yellow-500 text-white font-bold rounded py-2 px-2 mx-2 hover:bg-gray-700"> Add to cart </button>
+      <button (click)="this.cartStore.addToCart(product)" type="button" class="bg-yellow-500 text-white font-bold rounded py-2 px-2 mx-2 hover:bg-gray-700"> Add to cart </button>
       
     </div>
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, Output,EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output,EventEmitter, inject } from '@angular/core';
 import { IProduct } from '../../../models/product.interface';
-
+import { CartStore } from '../../../store/cart.store';
 
 @Component({
   selector: 'app-product-card',
@@ -14,6 +14,8 @@ import { IProduct } from '../../../models/product.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent { 
+
+  cartStore = inject(CartStore)
 
   // !! Dumb Component !!! should only be responsible for displaying
 

@@ -11,11 +11,11 @@
       }
 
       <span class="text-xl md:text-4xl font-semibold text-gray-700 dark:text-white">
-        Angular NGRX STORE ===> NGRX <span class="text-red-500">SIGNAL</span> STORE
+        Angular NGRX STORE ===> NGRX <span class="text-red">SIGNAL</span> STORE
       </span>
 
       <div>
-        <button (click)="navigateToCart()" type="button" routerLink="/cart" routerLinkActive="active" class="text-gray-600 dark:text-gray-300 hover:underline hidden sm:block">Cart {{ (products$ | async)?.length}} </button>
+        <button (click)="navigateToCart()" type="button" routerLink="/cart" routerLinkActive="active" class="text-gray-600 dark:text-gray-300 hover:underline hidden sm:block">Cart {{ cartStore.products().length}} </button>
       </div>
 
  
