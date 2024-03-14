@@ -23,25 +23,24 @@ export class CounterComponent {
 
 
 
-  //Initalize our Global store
+  
   constructor(private store: Store<AppState>){
-    //Now we can initalize the count$ from the store
     this.count$ = this.store.select(selectCount);
   }
  
 
-//These methods will dispatch our actions to the reducer
+
   increment(): void {
-    //Param1 : Which action to dispatch
-    this.store.dispatch(increment())
+    this.count.update((num) => num + 1);
+   
   }
 
   decrement(): void {
-    this.store.dispatch(decrement())
+    this.count.update((num) => num -1);
   }
 
   reset(): void {
-    this.store.dispatch(reset())
+    this.count.set(0);
   }
 
 }
